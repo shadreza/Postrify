@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,13 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-// adding the register name for the route
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+// adding the dashboard route
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/posts', function () {
+// adding the register name for the route
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('register', [RegisterController::class, 'store']);
+
+Route::get('posts', function () {
     return view('posts.index');
 });

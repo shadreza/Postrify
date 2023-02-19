@@ -38,5 +38,6 @@ class RegisterController extends Controller
 
         // signing the user in
         // redirect
+        return redirect()->route('dashboard');
     }
 }

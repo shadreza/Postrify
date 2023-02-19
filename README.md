@@ -66,3 +66,9 @@
 -   after the validation a valid user's info is stored and passed as te request into the post method
 -   then we insert the user in the database
 -   the password will be hashed and the facade [underlying static method] make() will do that for us
+
+#### 11. redirected to dashboard
+
+-   after the successful user insertion into the db we are redirecting the user to the dashboard
+-   adding the DashboardController, the dashboard blade view and teh route for that as well
+-   **redirect()->route('dashboard') is used because if we ever change the directory of the view then the route name will be helping us to make the redirection easy**
