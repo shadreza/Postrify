@@ -172,3 +172,22 @@
 
 -   iterating through the posts and showing stuff about them
 -   Carbon is a third party date time manipulation library
+
+#### 25. adding pagination
+
+        $posts = Post::get();
+
+-   this will return all the posts in a collection. if there are millions and millions of data then that would pull all those as collection. thats not good
+-   solution pagination -> returns in LengthAwarePaginator
+
+        $posts = Post::paginate(2);
+
+-   this fixed the pagination styling issue adding in the tailwind.config.js
+
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+
+-   to add the pagination only the **links()** function did the trick
+
+         {{ $posts->links() }}
+
+

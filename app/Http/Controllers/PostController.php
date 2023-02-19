@@ -11,7 +11,13 @@ class PostController extends Controller
     public function index()
     {
         // this will return all the posts in a collection
-        $posts = Post::get();
+        // if there are millions and millions of data then that would pull all those as collection
+        // thats not good
+        // $posts = Post::get();
+
+        // solution pagination -> returns in LengthAwarePaginator
+        $posts = Post::paginate(2);
+
 
         // we can pass the data in many ways
 
