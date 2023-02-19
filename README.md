@@ -38,3 +38,5 @@
 
 -   adding the username column in the up migration and in the down migration we are dropping that col
 -   migrating again
+
+#### 6. adding the mass assignment for username col

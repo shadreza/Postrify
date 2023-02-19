@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        // adding the mass assignment for username col
+        'username',
     ];
 
     /**
