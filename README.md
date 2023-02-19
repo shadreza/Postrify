@@ -97,3 +97,5 @@
 -   added some extra styling for the button and the form
 
 #### 16. homepage blade file added
+
+#### 17. adding routes to almost all the nav links
