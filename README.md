@@ -23,3 +23,8 @@
 
 #### 3. navbar added
 
+#### 4. base template setup
+
+-   the nav bar is having some margin bottom
+-   the main content is having nice spacing
+-   the base bg color is tuned a bit darker
