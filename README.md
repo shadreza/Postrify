@@ -47,7 +47,10 @@
 -   adding the register view in the auth folder as well
 -   adding the register route and assigning the class and function
 
-#### 8. adding the register route
+#### 8. adding the register route & the register form
 
 -   in the routes we are giving the name of the register route
 -   we are adding the route in the nav part
+-   added the form for the registration
+-   any form we submit is by default set to cross site request forgery protection. So it must be set that who is submitting the form is actually submitting it or not. And for that we have to see the session tokens. **if page is expired | err 419** -> solution can be @csrf at the beginning of form
+-   adding the store route for the form to be stored and adding the store function in the Register controller

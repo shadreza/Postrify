@@ -12,4 +12,10 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
+
+    // post will come to this function
+    public function store()
+    {
+        dd('abc');
+    }
 }
