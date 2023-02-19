@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-8/12 bg-white p-6 rounded-lg">
-            <form action="{{ route('posts') }}" method="post">
+            <form action="{{ route('posts') }}" method="post" class="mb-4">
                 @csrf
                 <div class="mb-4">
                     <label for="body" class="sr-only">Body</label>
@@ -22,6 +22,27 @@
                     </button>
                 </div>
             </form>
+
+            {{-- iterating through the posts --}}
+            {{-- Carbon is a third party date time manipulation library --}}
+            @if ($posts->count())
+                @foreach ($posts as $post)
+                    <div class="mb-4">
+                        <a href="" class="font-bold mr-1">{{ $post->user->name }}</a>
+
+                        @if ($post->created_at)
+                            <span class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</span>
+                        @else
+                            <span class="text-gray-500 text-sm">somewhere in time-space</span>
+                        @endif
+
+                        <p class="mb-2">{{ $post->body }}</p>
+                    </div>
+                @endforeach
+            @else
+                <p>There are no posts</p>
+            @endif
+
         </div>
     </div>
 @endsection

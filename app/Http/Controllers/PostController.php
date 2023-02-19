@@ -10,7 +10,16 @@ class PostController extends Controller
     // returning the view
     public function index()
     {
-        return view('posts.index');
+        // this will return all the posts in a collection
+        $posts = Post::get();
+
+        // we can pass the data in many ways
+
+        // return view('posts.index', [
+        //     'posts' => $posts
+        // ]);
+
+        return view('posts.index', compact('posts'));
     }
 
     // post the post

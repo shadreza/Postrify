@@ -159,3 +159,16 @@
 #### 23. adding post functionality [ contd contd ]
 
 -   the post can now be posted and seen in the db phpMyAdmin
+
+#### 24. listing the posts
+
+-   got all the posts and passed them to the post index blade page
+-   as we need the name of user of a post so there needs to be a relation between post and the user and this will be done in the post model
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+
+-   iterating through the posts and showing stuff about them
+-   Carbon is a third party date time manipulation library
