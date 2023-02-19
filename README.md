@@ -28,3 +28,13 @@
 -   the nav bar is having some margin bottom
 -   the main content is having nice spacing
 -   the base bg color is tuned a bit darker
+
+#### 5. migration
+
+-   migrating the defaults
+-   adding the username to the users table by the following code
+
+        php artisan make:migration add_username_to_users_table
+
+-   adding the username column in the up migration and in the down migration we are dropping that col
+-   migrating again
