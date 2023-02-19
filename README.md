@@ -88,3 +88,12 @@
 -   added the login form with proper validation marker and alert in the blade file
 -   added the login route
 -   added the login route to the href of the anchor tag in the nav option of login
+
+#### 15. logout functionality added
+
+-   the LogoutController was added with only the store method where we are basically logging the user out and the redirecting to the homepage is done there
+-   the logout was turned into a button within a form from the anchor tag as there is chance that any hacker can redirect a valid user to the logout by scripting and to protect from this we will be adding **@csrf** and the form config and this will be a post method for from the valid form
+-   added the login route
+-   added some extra styling for the button and the form
+
+#### 16. homepage blade file added

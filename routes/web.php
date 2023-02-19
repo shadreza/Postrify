@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,16 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+// adding the home route
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
 // adding the dashboard route
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// adding the logout route
+Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
 // adding the login route
 Route::get('login', [LoginController::class, 'index'])->name('login');

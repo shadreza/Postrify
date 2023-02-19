@@ -48,7 +48,12 @@
                         <a class="p-3"href="">{{ auth()->user()->username }}</a>
                     </li>
                     <li>
-                        <a class="p-3"href="">Logout</a>
+                        {{-- this is done as any hacker can easily reoute a valid user to the logout by js scripting --}}
+                        {{-- to avoid that we are doing it from the inside to make it more secure --}}
+                        <form action="{{ route('logout') }}" method="post" class="inline p-3">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
                     </li>
                 @endauth
 
