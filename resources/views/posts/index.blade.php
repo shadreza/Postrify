@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    Index
+    <h1 class="text-3xl font-bold underline">
+        Assalamu Alaikum
+    </h1>
 @endsection
