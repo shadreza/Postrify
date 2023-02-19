@@ -74,3 +74,9 @@
 -   **redirect()->route('dashboard') is used because if we ever change the directory of the view then the route name will be helping us to make the redirection easy**
 
 #### 12. signing the user in [this step will be placed before the redirection]
+
+#### 13. showing dynamic nav options based on the authenticated state
+
+-   if the user is authenticated / signed / auth -> then it will display the user name and the logout
+-   if the user is in guest mode / not auth / not logged in -> it will display the register and login
+-   done in various forms but the most advanced one [auth / guest] is implemented

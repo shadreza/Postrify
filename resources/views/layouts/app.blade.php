@@ -22,18 +22,46 @@
             </ul>
 
             <ul class="flex items-center">
-                <li>
-                    <a class="p-3"href="">Shad Reza</a>
-                </li>
-                <li>
-                    <a class="p-3"href="">Login</a>
-                </li>
-                <li>
-                    <a class="p-3"href="{{ route('register') }}">Register</a>
-                </li>
-                <li>
-                    <a class="p-3"href="">Logout</a>
-                </li>
+
+                {{-- auth()->check()     would also do --}}
+                    
+                {{-- @if (auth()->user())
+                    <li>
+                        <a class="p-3"href="">{{ auth()->user()->username }}</a>
+                    </li>
+                    <li>
+                        <a class="p-3"href="">Logout</a>
+                    </li>
+                @else
+                    <li>
+                        <a class="p-3"href="">Login</a>
+                    </li>
+                    <li>
+                        <a class="p-3"href="{{ route('register') }}">Register</a>
+                    </li>
+                @endif --}}
+
+                {{-- this will also do the same --}}
+
+                @auth
+                    <li>
+                        <a class="p-3"href="">{{ auth()->user()->username }}</a>
+                    </li>
+                    <li>
+                        <a class="p-3"href="">Logout</a>
+                    </li>
+                @endauth
+
+                @guest
+                    <li>
+                        <a class="p-3"href="">Login</a>
+                    </li>
+                    <li>
+                        <a class="p-3"href="{{ route('register') }}">Register</a>
+                    </li>
+                @endguest
+
+
             </ul>
         </nav>
         @yield('content')
