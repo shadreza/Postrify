@@ -72,3 +72,5 @@
 -   after the successful user insertion into the db we are redirecting the user to the dashboard
 -   adding the DashboardController, the dashboard blade view and teh route for that as well
 -   **redirect()->route('dashboard') is used because if we ever change the directory of the view then the route name will be helping us to make the redirection easy**
+
+#### 12. signing the user in [this step will be placed before the redirection]

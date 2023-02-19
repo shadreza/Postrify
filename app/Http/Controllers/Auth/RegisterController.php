@@ -37,6 +37,10 @@ class RegisterController extends Controller
         ]);
 
         // signing the user in
+        // auth attempt will be trying to sign the user in
+        // only the email and the password will be passed
+        auth()->attempt($request->only('email', 'password'));
+
         // redirect
         return redirect()->route('dashboard');
     }
