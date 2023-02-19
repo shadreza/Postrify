@@ -116,3 +116,22 @@
 -   added the post form in the blade file [added @csrf]
 -   partially made the PostController with index and store [ partial ]
 -   made the posts routes get and post
+
+#### 21. adding post functionality [ contd ]
+
+-   we made Post table with a migration, post factory and even a Post model
+-   added the post params like body [post content -> text] & user_id
+
+        // but the next solution works with the foreign key
+        // the foreignId will be looking at user_id as user[table_name] & id[table_col]
+        // constrained means the foreign key is constrained here. hit records according to their constraints foreign key
+        // onDelete('cascade') means that if any user is deleted then his posts will also be deleted in the database level
+        
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+-   migrated the migration and db is now updated 
+-   add post validation in the PostController
+-   add the routes for the post with both get and post method
+-   added the create post function in the store method in the PostController
+-   add mass assignment in the model then
+-   work on the user elequent relationship for the one to many relationship

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,19 @@ class PostController extends Controller
     // post the post
     public function store(Request $request)
     {
-        dd($request);
-    }
+        // validation
+        $this->validate($request, [
+            'body' => 'required',
+        ]);
 
+        // create the post
+        // Post::create([
+        //     'user_id' => auth()->id(),
+        //     'body' => $request->body
+        // ]);
+
+        // as the user will have many posts so lets make a one to many relationship using the elequent relationship on the user model
+
+        // auth()->use
+    }
 }
