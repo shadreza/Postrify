@@ -126,12 +126,32 @@
         // the foreignId will be looking at user_id as user[table_name] & id[table_col]
         // constrained means the foreign key is constrained here. hit records according to their constraints foreign key
         // onDelete('cascade') means that if any user is deleted then his posts will also be deleted in the database level
-        
+
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
--   migrated the migration and db is now updated 
+-   migrated the migration and db is now updated
 -   add post validation in the PostController
 -   add the routes for the post with both get and post method
 -   added the create post function in the store method in the PostController
 -   add mass assignment in the model then
 -   work on the user elequent relationship for the one to many relationship
+
+#### 22. adding the one to many elequent relationship between user and post model
+
+-   added the elequent relationship
+
+        // one to many
+        // user : posts
+        public function posts() {
+            // as we have id in the user table and posts table has user_id
+            // by convention we will not have to pass the next indexes with the parameters
+            return $this->hasMany(Post::class);
+        }
+
+-   some key talks on the return values
+
+        // posts() -> will return all the objects
+        // dd(auth()->user()->posts());
+
+        // post -> will return only the collection of the properties
+        // dd(auth()->user()->posts);

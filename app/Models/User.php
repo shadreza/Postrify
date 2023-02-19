@@ -43,4 +43,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // adding the elequent relationship with posts
+    // one to many
+    // user : posts
+    public function posts() {
+        // as we have id in the user table and posts table has user_id
+        // by convention we will not have to pass the next indexes with the parameters
+        return $this->hasMany(Post::class);
+    }
+
+
+
 }

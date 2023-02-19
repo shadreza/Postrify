@@ -29,6 +29,5 @@ class PostController extends Controller
 
         // as the user will have many posts so lets make a one to many relationship using the elequent relationship on the user model
 
-        // auth()->use
     }
 }
