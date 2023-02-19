@@ -155,3 +155,7 @@
 
         // post -> will return only the collection of the properties
         // dd(auth()->user()->posts);
+
+#### 23. adding post functionality [ contd contd ]
+
+-   the post can now be posted and seen in the db phpMyAdmin

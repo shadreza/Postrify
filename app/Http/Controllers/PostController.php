@@ -29,5 +29,10 @@ class PostController extends Controller
 
         // as the user will have many posts so lets make a one to many relationship using the elequent relationship on the user model
 
+        // the user_id will automatically filled in
+        $request->user()->posts()->create($request->only('body'));
+
+        // redirecting back
+        return back();
     }
 }
