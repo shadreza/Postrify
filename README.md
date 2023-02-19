@@ -54,3 +54,9 @@
 -   added the form for the registration
 -   any form we submit is by default set to cross site request forgery protection. So it must be set that who is submitting the form is actually submitting it or not. And for that we have to see the session tokens. **if page is expired | err 419** -> solution can be @csrf at the beginning of form
 -   adding the store route for the form to be stored and adding the store function in the Register controller
+
+#### 9. validation in the register form
+
+-   adding validation for the registration form
+-   showing errors in the form and also adding errored styles
+-   if there is any issue with the validation it will clear the form but all the hard work will be lost. so the value in the input section can be set **{{ old('prop') }}** this will save the old data so the user will fell great in filling the form again
