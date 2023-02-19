@@ -99,3 +99,10 @@
 #### 16. homepage blade file added
 
 #### 17. adding routes to almost all the nav links
+
+#### 18. adding middleware
+
+-   Dashboard -> auth [only the authorized users can see the dashboard]
+-   Login -> guest [if the user is logged in should not be able to go to this route]
+-   Register -> guest [if the user is logged in should not be able to go to this route]
+

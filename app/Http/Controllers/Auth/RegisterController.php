@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+
+    // if the user is signed in he should not be able to go to the register route
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     // this will be index function
     public function index()
     {

@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+
+    // if the user is signed in he should not be able to go to the login route
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     //  showing the form
     public function index()
     {
