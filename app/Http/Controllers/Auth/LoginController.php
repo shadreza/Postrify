@@ -30,7 +30,8 @@ class LoginController extends Controller
         ]);
 
         // user sign in
-        if (!auth()->attempt($request->only('email', 'password'))) {
+        // remember me functionality needs to be passed to the auth attempt so that it can make a remember token and store it so that if we don't logout  but close the tab and when reentering into the website we won't be needing to login again
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
             // shortcut for redirecting back from where we came
             // with will flash a message to the session
             return back()->with('status', 'Invalid Login Details');

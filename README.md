@@ -106,3 +106,7 @@
 -   Login -> guest [if the user is logged in should not be able to go to this route]
 -   Register -> guest [if the user is logged in should not be able to go to this route]
 
+#### 19. adding remember me functionality
+
+-   the remember me checkbox was added to the login form
+-   the functionality for the remember me token was done in the LoginController
