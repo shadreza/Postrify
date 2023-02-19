@@ -45,5 +45,9 @@
 
 -   adding the register controller in the auth folder
 -   adding the register view in the auth folder as well
--   adding the register route and assigning the class and function 
+-   adding the register route and assigning the class and function
 
+#### 8. adding the register route
+
+-   in the routes we are giving the name of the register route
+-   we are adding the route in the nav part

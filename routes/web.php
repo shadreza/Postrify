@@ -13,7 +13,8 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/register', [RegisterController::class, 'index']);
+// adding the register name for the route
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
 Route::get('/posts', function () {
     return view('posts.index');
