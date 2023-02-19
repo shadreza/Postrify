@@ -24,7 +24,7 @@
             <ul class="flex items-center">
 
                 {{-- auth()->check()     would also do --}}
-                    
+
                 {{-- @if (auth()->user())
                     <li>
                         <a class="p-3"href="">{{ auth()->user()->username }}</a>
@@ -54,7 +54,7 @@
 
                 @guest
                     <li>
-                        <a class="p-3"href="">Login</a>
+                        <a class="p-3"href="{{ route('login') }}">Login</a>
                     </li>
                     <li>
                         <a class="p-3"href="{{ route('register') }}">Register</a>

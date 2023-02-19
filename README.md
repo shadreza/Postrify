@@ -80,3 +80,11 @@
 -   if the user is authenticated / signed / auth -> then it will display the user name and the logout
 -   if the user is in guest mode / not auth / not logged in -> it will display the register and login
 -   done in various forms but the most advanced one [auth / guest] is implemented
+
+#### 14. login functionality added
+
+-   the LoginController was added with index [for returning the view] and the store [actual signing in] methods
+-   with proper login it moves forward to the dashboard else it redirects back to where it came from
+-   added the login form with proper validation marker and alert in the blade file
+-   added the login route
+-   added the login route to the href of the anchor tag in the nav option of login
