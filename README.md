@@ -40,3 +40,10 @@
 -   migrating again
 
 #### 6. adding the mass assignment for username col
+
+#### 7. adding key few things about register
+
+-   adding the register controller in the auth folder
+-   adding the register view in the auth folder as well
+-   adding the register route and assigning the class and function 
+
