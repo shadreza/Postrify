@@ -60,3 +60,9 @@
 -   adding validation for the registration form
 -   showing errors in the form and also adding errored styles
 -   if there is any issue with the validation it will clear the form but all the hard work will be lost. so the value in the input section can be set **{{ old('prop') }}** this will save the old data so the user will fell great in filling the form again
+
+#### 10. user created
+
+-   after the validation a valid user's info is stored and passed as te request into the post method
+-   then we insert the user in the database
+-   the password will be hashed and the facade [underlying static method] make() will do that for us
