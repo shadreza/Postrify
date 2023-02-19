@@ -17,7 +17,10 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            //  the definition will be given here
+
+            // faker will be creating a sentence of 24 words
+            'body' => $this->faker->sentence(24),
         ];
     }
 }

@@ -190,4 +190,11 @@
 
          {{ $posts->links() }}
 
+#### 26. seeding for many posts
 
+-   the **faker** library makes very realistic things that can be helpful to populate our posts
+-   using the tinker and the following code we generated 200 posts for user_id 2
+
+        App\Models\Post::factory()->times(200)->create(['user_id'=>2]);
+
+-   setting the pagination to 20 per page

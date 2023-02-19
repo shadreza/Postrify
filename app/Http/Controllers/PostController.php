@@ -16,7 +16,7 @@ class PostController extends Controller
         // $posts = Post::get();
 
         // solution pagination -> returns in LengthAwarePaginator
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(20);
 
 
         // we can pass the data in many ways
