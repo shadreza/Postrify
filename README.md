@@ -110,3 +110,9 @@
 
 -   the remember me checkbox was added to the login form
 -   the functionality for the remember me token was done in the LoginController
+
+#### 20. adding post functionality
+
+-   added the post form in the blade file [added @csrf]
+-   partially made the PostController with index and store [ partial ]
+-   made the posts routes get and post
