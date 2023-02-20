@@ -16,7 +16,8 @@ class PostController extends Controller
         // $posts = Post::get();
 
         // solution pagination -> returns in LengthAwarePaginator
-        $posts = Post::paginate(20);
+        // adding eager loading
+        $posts = Post::with(['user', 'likes'])->paginate(20);
 
 
         // we can pass the data in many ways

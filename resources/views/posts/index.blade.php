@@ -41,23 +41,28 @@
                         {{-- adding the like and dislike here --}}
                         <div class="flex items-center">
 
-                            {{-- if the user has not yet liked the post only then like button will come --}}
-                            @if (!$post->likedBy(auth()->user()))
-                                <form action="{{ route('posts.likes', $post->id) }}" method="post" class="mr-1">
-                                    @csrf
-                                    <button type="submit" class="text-blue-500">Like</button>
-                                </form>
+                            {{-- as the user who is not signed in can not like / unlike so guarding with auth --}}
+                            @auth
 
-                            {{-- if the user has liked the post then unlike will come --}}
-                            @else
-                                <form action="{{ route('posts.likes', $post->id) }}" method="post" class="mr-1">
-                                    @csrf
-                                    {{-- this is method spoofing --}}
-                                    {{-- keeps the thing restful --}}
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-500">Unlike</button>
-                                </form>
-                            @endif
+                                {{-- if the user has not yet liked the post only then like button will come --}}
+                                @if (!$post->likedBy(auth()->user()))
+                                    <form action="{{ route('posts.likes', $post->id) }}" method="post" class="mr-1">
+                                        @csrf
+                                        <button type="submit" class="text-blue-500">Like</button>
+                                    </form>
+
+                                {{-- if the user has liked the post then unlike will come --}}
+                                @else
+                                    <form action="{{ route('posts.likes', $post->id) }}" method="post" class="mr-1">
+                                        @csrf
+                                        {{-- this is method spoofing --}}
+                                        {{-- keeps the thing restful --}}
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-500">Unlike</button>
+                                    </form>
+                                @endif
+
+                            @endauth
 
                             {{-- adding pluraliser to likes --}}
                             <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>

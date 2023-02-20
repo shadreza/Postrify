@@ -243,3 +243,13 @@
 -   adding auth middleware to the PostLikeController
 -   adding the unlike destroy method in PostLikeController
 -   used method spoofing to make things restful and do the delete
+
+#### 28. adding eager loading
+
+-   for every single iteration and data retrieval many queries are being done
+-   to make the bundle size of these queries small we need to do eager loading
+
+        $posts = Post::with(['user', 'likes'])->paginate(20);
+
+-   one line of code massive improvement
+-   adding auth guard to the like unlike feature as an unsigned user can not do that
