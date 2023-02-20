@@ -198,3 +198,48 @@
         App\Models\Post::factory()->times(200)->create(['user_id'=>2]);
 
 -   setting the pagination to 20 per page
+
+#### 27. adding like and unlike functionality
+
+-   adding like and unlike in the post index blade page
+-   creating migration as create_likes_table
+
+        php artisan make:migration create_likes_table --create=likes
+
+-   this will be sort of an pivot table
+
+        // as like / unlike is performed by a user
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        // as like / unlike is performed on a post
+        $table->foreignId('post_id')->constrained()->onDelete('cascade');
+
+-   migrating the table
+-   adding elequent one to many relationship between post and like tables. one post can have many likes. also this relationship will be passed down to the user model as well. one user many likes
+
+        public function likes()
+        {
+            return $this->hasMany(Like::class);
+        }
+
+-   adding pluraliser to likes
+
+        Str::plural('like', $post->likes->count())
+
+-   made PostLikeController
+-   in the like model we mass assigned the user_id property
+-   by adding {id} we need to look for that data in the db. so what if we can pass the data and work on that. for that we need to type the model name like, "post" in the {} and then work on that
+
+        Route::post('posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
+
+-   added the action in the like form and passed the data to the controller and the PostLikeController saved that to the db
+
+        $post->likes()->create([
+            'user_id' => $request->user()->id,
+        ]);
+
+-   after the posting is done redirecting back
+-   if the user has already liked then only unlike form else like form
+-   if by chance there is an issue and the other happens then that will go to an 409 page
+-   adding auth middleware to the PostLikeController
+-   adding the unlike destroy method in PostLikeController
+-   used method spoofing to make things restful and do the delete
