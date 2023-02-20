@@ -289,3 +289,18 @@
         }
 
 -   the **can** directive does the job [@can('delete', $post)]
+
+#### 30. adding user profile page
+
+-   made a controller named UserPostController
+-   add the route
+
+        // in the {user:username} -> by default the id was being shown in the url now the username will be replaced there
+        Route::get('users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
+
+-   referencing in the post index blade file where the name of the user is shown
+-   now we pass the user in the view and that will be showing the data in the users.posts.index blade
+-   using eager loading we are passing the data of the posts, likes of the user
+-   making a component [issue in components]
+-   adding pagination as before
+-   adding relationship via [ hasManyThrough ] to get the likes count

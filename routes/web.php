@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,10 @@ Route::get('/', function () {
 
 // adding the dashboard route
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// adding the users route
+// in the {user:username} -> by default the id was being shown in the url now the username will be replaced there
+Route::get('users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
 // adding the logout route
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');

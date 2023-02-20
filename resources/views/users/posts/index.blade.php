@@ -2,29 +2,14 @@
 
 @section('content')
     <div class="flex justify-center">
-        <div class="w-10/12 bg-white p-6 rounded-lg">
-            <form action="{{ route('posts') }}" method="post" class="mb-4">
-                @csrf
-                <div class="mb-4">
-                    <label for="body" class="sr-only">Body</label>
-                    <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" placeholder="Post something!"></textarea>
-
-                    @error('body')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium">
-                        Post
-                    </button>
-                </div>
-            </form>
-
-            {{-- iterating through the posts --}}
-            {{-- Carbon is a third party date time manipulation library --}}
+        <div class="w-8/12">
+        <div class="p-6">
+            <h1 class="text-center text-2xl font-medium mb-1">
+                {{ $user->name }}
+            </h1>
+            <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and recieved {{ $user->receivedLikes->count() }} {{ Str::plural('like', $user->receivedLikes->count()) }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg">
             @if ($posts->count())
                 @foreach ($posts as $post)
                     <div class="mb-4">
@@ -87,8 +72,9 @@
                 {{ $posts->links() }}
 
             @else
-                <p>There are no posts</p>
+                <p>{{ $user->name }} does not have any posts</p>
             @endif
+        </div>
 
         </div>
     </div>
