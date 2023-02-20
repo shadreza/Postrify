@@ -17,7 +17,7 @@ class PostController extends Controller
 
         // solution pagination -> returns in LengthAwarePaginator
         // adding eager loading
-        $posts = Post::with(['user', 'likes'])->paginate(20);
+        $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
 
 
         // we can pass the data in many ways
@@ -49,6 +49,19 @@ class PostController extends Controller
         $request->user()->posts()->create($request->only('body'));
 
         // redirecting back
+        return back();
+    }
+
+    // delete a post
+    public function destroy(Post $post)
+    {
+        // adding the policy
+        $this->authorize('delete', $post);
+
+        // deleting the post
+        $post->delete();
+
+        // redirecting
         return back();
     }
 }

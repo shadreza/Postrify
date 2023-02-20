@@ -38,6 +38,18 @@
 
                         <p class="mb-2">{{ $post->body }}</p>
 
+                        @auth
+                            @can('delete', $post)
+                                <div>
+                                    <form action="{{ route('posts.destroy', $post) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-500">Delete</button>
+                                    </form>
+                                </div>
+                            @endcan
+                        @endauth
+
                         {{-- adding the like and dislike here --}}
                         <div class="flex items-center">
 
@@ -58,7 +70,7 @@
                                         {{-- this is method spoofing --}}
                                         {{-- keeps the thing restful --}}
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500">Unlike</button>
+                                        <button type="submit" class="text-purple-500">Unlike</button>
                                     </form>
                                 @endif
 

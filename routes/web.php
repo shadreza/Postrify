@@ -40,6 +40,7 @@ Route::post('register', [RegisterController::class, 'store']);
 // adding the post route
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 Route::post('posts', [PostController::class, 'store']);
+Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // by adding {id} we need to look for that data in the db
 // so what if we can pass the data and work on that

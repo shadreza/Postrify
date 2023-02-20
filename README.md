@@ -253,3 +253,39 @@
 
 -   one line of code massive improvement
 -   adding auth guard to the like unlike feature as an unsigned user can not do that
+
+#### 29. deleting a post
+
+-   added the delete route
+-   in the blade file added the button in form and that will be sending the post to the controller
+-   PostController deletes by the method of destroy [but anyone can delete anyone's post]
+-   make a policy [Post Policy]
+
+        // can we delete a post ?
+        public function delete(User $user, Post $post)
+        {
+            return $user->id === $post->user_id;
+        }
+
+-   in AuthServiceProvider added that policy
+
+        protected $policies = [
+            Post::class => PostPolicy::class,
+        ];
+
+-   added the delete policy in the destroy function
+
+        // delete a post
+        public function destroy(Post $post)
+        {
+            // adding the policy
+            $this->authorize('delete', $post);
+
+            // deleting the post
+            $post->delete();
+
+            // redirecting
+            return back();
+        }
+
+-   the **can** directive does the job [@can('delete', $post)]
