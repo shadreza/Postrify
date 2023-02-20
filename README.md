@@ -303,10 +303,14 @@
 -   using eager loading we are passing the data of the posts, likes of the user
 -   making a component [issue in components]
 -   adding pagination as before
--   adding relationship via [ hasManyThrough ] to get the likes count 
+-   adding relationship via [ hasManyThrough ] to get the likes count
 
 #### 31. added single post page
 
 -   added the posts.show route
 -   added the controller
 -   added the show blade
+
+---
+
+## Alhamdulillah !
